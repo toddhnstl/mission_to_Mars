@@ -13,15 +13,33 @@
   <div class="container">
 
     <div class="jumbotron text-center">
-      <h1>Hot Finds On Craigslist</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Find An Awesome Deal!</a></p>
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get News</a></p>
     </div>
 
     <!-- Craigslist Listings -->
     <div class="row" id="craiglist-listings">
       <div class="col-md-12">
-        <h4 class="heading">{{listings.price}} {{listings.headline}}</h4>
-        <small>{{listings.hood}}</small>
+        <h4 class="mars_h">Title: {{mission_to_mars.news_title}} </h4>
+        <p class="news_p">News P: {{mission_to_mars.news_p}}</p>
+        <div class="mars_image">
+          <h4>mars image?</h4>
+          <img src="{{mission_to_mars.featured_image_url}}">
+        </div>
+        <div class="weather_data">
+          <h4>weather_data</h4>
+          <p>{{mission_to_mars.weather_data}}"</p>
+        </div>
+        <div class="facts_html_str">
+          <h4>facts_html_str</h4>
+          {{mission_to_mars.facts_html_str}}
+        </div>
+        <div class="hemisphere_image_urls">
+          <h4>hemisphere_image_urls </h4>
+          <p>{{mission_to_mars.hemisphere_image_urls}}</p>
+        </div>
+
+        <small>Small Text</small>
       </div>
     </div>
 
