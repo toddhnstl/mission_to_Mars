@@ -24,7 +24,9 @@
         <p class="news_p">News P: {{mission_to_mars.news_p}}</p>
         <div class="mars_image">
           <h4>mars image?</h4>
+
           <img src="{{mission_to_mars.featured_image_url}}">
+          <h6>Image caption?: {{mission_to_mars.featured_image_caption}}</h6>
         </div>
         <div class="weather_data">
           <h4>weather_data</h4>
@@ -32,7 +34,9 @@
         </div>
         <div class="facts_html_str">
           <h4>facts_html_str</h4>
-          {{mission_to_mars.facts_html_str}}
+          <div class="facts_html_table">
+            {{mission_to_mars.facts_html_str}}
+          </div>
         </div>
         <div class="hemisphere_image_urls">
           <h4>hemisphere_image_urls </h4>

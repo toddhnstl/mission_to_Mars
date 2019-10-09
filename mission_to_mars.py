@@ -144,14 +144,22 @@ def scrape():
     html = browser.html
     soup = bs(html, 'html.parser')
 
+    # Get the image
     img_class = soup.find('img', class_='fancybox-image')
     img_url = img_class['src']
     featured_image_url = base_url + img_url
+
+    # Get the caption  Am getting 'more info' for a lot of
+    # these.  maybe strip if exists?
+    img_cap_str = soup.find('div', class_='fancybox-title fancybox-title-outside-wrap').text
+    featured_image_caption = img_cap_str.strip('more info')
+
+
     # print(featured_image_url)
 
     # Load it to the dataframe
     scraped_data['featured_image_url'] = featured_image_url
-
+    scraped_data['featured_image_caption'] = featured_image_caption
 
     # In[9]:
 
