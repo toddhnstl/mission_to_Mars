@@ -5,8 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hot Finds</title>
+  <title>Mars News/Views</title>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+
+
 </head>
 
 <body>
@@ -17,35 +36,20 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get News</a></p>
     </div>
 
-    <!-- Craigslist Listings -->
-    <div class="row" id="craiglist-listings">
-      <div class="col-md-12">
-        <h4 class="mars_h">Title: {{mission_to_mars.news_title}} </h4>
-        <p class="news_p">News P: {{mission_to_mars.news_p}}</p>
-        <div class="mars_image">
-          <h4>mars image?</h4>
-
-          <img src="{{mission_to_mars.featured_image_url}}">
-          <h6>Image caption?: {{mission_to_mars.featured_image_caption}}</h6>
+    <!-- Page contents -->
+     <div class="col-md-8 col-sm-12">
+        <div class="page_left">
+            <h2>Mars News</h2>
+              <span class="landing_left_image">
+                  <h4>{{mission_to_mars.news_title}}</h4>
+                  <figure class="figure">
+                      <img class="figure-img img-fluid rounded" src="{{mission_to_mars.featured_image_url}}"
+                           alt="alt text" width="30%" height="30%">
+                      <figcaption class="figure-caption">{{mission_to_mars.featured_image_caption}}</figcaption>
+                  <p>{{mission_to_mars.news_p}}</p>
+              </span>
         </div>
-        <div class="weather_data">
-          <h4>weather_data</h4>
-          <p>{{mission_to_mars.weather_data}}"</p>
-        </div>
-        <div class="facts_html_str">
-          <h4>facts_html_str</h4>
-          <div class="facts_html_table">
-            {{mission_to_mars.facts_html_str}}
-          </div>
-        </div>
-        <div class="hemisphere_image_urls">
-          <h4>hemisphere_image_urls </h4>
-          <p>{{mission_to_mars.hemisphere_image_urls}}</p>
-        </div>
-
-        <small>Small Text</small>
-      </div>
-    </div>
+     </div>
 
   </div>
 </body>

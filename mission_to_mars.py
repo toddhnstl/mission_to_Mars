@@ -129,33 +129,28 @@ def scrape():
 
     # In[8]:
 
-
     # site 2 - https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars
     base_url = 'https://www.jpl.nasa.gov'
-    # use splinter to connect to the url and navigate, then use bs4 to repeat what you did in site 1
+    # # use splinter to connect to the url and navigate, then use bs4 to repeat what you did in site 1
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
-    browser.visit(url)
-    time.sleep(3)
+    # browser.visit(url)
 
-    browser.click_link_by_partial_text('FULL IMAGE')
-    time.sleep(3)
+    image_response = requests.get(url)
+    time.sleep(2)
 
-    # object img  class=fancybox-image
-    html = browser.html
-    soup = bs(html, 'html.parser')
+    # use beautiful soup to parse the url above
+    img_soup = bs(image_response.text, 'html.parser')
+    time.sleep(5)
+    img = img_soup.find('article', class_='carousel_item')
+    str_img = img['style']
+    a, featured_image_url, c = str_img.split("'")
 
-    # Get the image
-    img_class = soup.find('img', class_='fancybox-image')
-    img_url = img_class['src']
-    featured_image_url = base_url + img_url
+    featured_image_url = base_url + featured_image_url
+    print(featured_image_url)
 
-    # Get the caption  Am getting 'more info' for a lot of
-    # these.  maybe strip if exists?
-    img_cap_str = soup.find('div', class_='fancybox-title fancybox-title-outside-wrap').text
-    featured_image_caption = img_cap_str.strip('more info')
-
-
-    # print(featured_image_url)
+    featured_image_caption = img_soup.find('h1', class_='media_feature_title').text
+    featured_image_caption = featured_image_caption.strip()
+    print(featured_image_caption)
 
     # Load it to the dataframe
     scraped_data['featured_image_url'] = featured_image_url
