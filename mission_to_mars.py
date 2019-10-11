@@ -226,7 +226,25 @@ def scrape():
 
 
     # convert facts_df to a html string and add to dictionary.
-    facts_html_str = facts_df.to_html(index=False, justify='center', table_id='facts_table')
+    # facts_html_str = facts_df.to_html(index=False, justify='center', table_id='facts_table', escape=False)
+    facts_df.to_html('templates/facts_table.html', index=False, justify='center', escape=False, table_id='facts_table')
+
+    # to ensure utf-8 for the html file, i'm going to read it, then write it
+    FILEHANDLE_IN = open('templates/facts_table.html', "r")
+    facts_str = FILEHANDLE_IN.read()
+
+    facts_str.replace('\\n', '')
+
+    facts_str = str(facts_str)
+    FILEHANDLE_OUT = open('templates/facts_table_clean.html', "w+", encoding='utf8')
+    FILEHANDLE_OUT.write(facts_str)
+
+    FILEHANDLE_IN.close()
+    FILEHANDLE_OUT.close()
+
+
+    # store it to the string...
+    facts_html_str = facts_df.to_html(index=False, justify='center', escape=False, table_id='facts_table')
     # print(facts_html_str)
 
     scraped_data['facts_html_str'] = facts_html_str

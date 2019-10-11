@@ -24,35 +24,88 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
+<!--    <script src="./w3.js"></script>-->
 
+<!--    <link href="style.css" type="text/css" rel="stylesheet">-->
 
 </head>
 
-<body>
+<body style="background-color: dark-grey;">
   <div class="container">
 
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get News</a></p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest</a></p>
     </div>
 
     <!-- Page contents -->
-     <div class="col-md-8 col-sm-12">
-        <div class="page_left">
-            <h2>Mars News</h2>
-              <span class="landing_left_image">
-                  <h4>{{mission_to_mars.news_title}}</h4>
-                  <figure class="figure">
-                      <img class="figure-img img-fluid rounded" src="{{mission_to_mars.featured_image_url}}"
-                           alt="alt text" width="30%" height="30%">
-                      <figcaption class="figure-caption">{{mission_to_mars.featured_image_caption}}</figcaption>
-                  <p>{{mission_to_mars.news_p}}</p>
-              </span>
-        </div>
-     </div>
+     <div class="row">
+         <div class="col-md-8 col-sm-12">
+            <div class="page_left">
+                <h2 align="center">Mars News</h2>
+                <hr>
+                <h4>{{mission_to_mars.news_title}}</h4>
+                <p>{{mission_to_mars.news_p}}</p>
 
-  </div>
+                <figure class="figure">
+                    <img class="figure-img img-fluid rounded" src="{{mission_to_mars.featured_image_url}}"
+                        alt="alt text" width="100%" height="100%">
+                        <figcaption class="figure-caption">{{mission_to_mars.featured_image_caption}}</figcaption>
+                </figure>
+             </div>
+         </div>
+          <!-- Right side top -->
+          <div class="col-md-4 col-sm-12">
+              <div class="container">
+                  <div class="row">
+                    <div class="alert alert-dark" role="alert">
+                        <h4 align="center">Weather</h4>
+                        <br/>
+                        {{mission_to_mars.weather_data}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="alert alert-dark" role="alert">
+                        <h4 align="center">facts</h4>
+                        {% include 'facts_table_clean.html' ignore missing %}
+                        <br/>
+                    </div>
+                  </div>
+              </div>
+          </div>
+       </div>
+   </div>
+    <!-- The images  it would be cool to do a while loop on this -->
+    <div class="container">
+      <div class="row">
+         <div class="col-md-12 col-sm-12">
+            {% set ctr = 0 %}
+            {% for item in mission_to_mars.hemisphere_image_urls %}
+
+              <div class="col-md-6 col-xs-6">
+                 <figure class="figure">
+                    <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}"
+                        alt="alt text" width="50%" height="50%">
+                        <figcaption class="figure-caption">{{item["title"]}}</figcaption>
+                </figure>
+              </div>
+            {% endfor %}
+         </div>
+      </div>
+    </div>
+
+<!--   &lt;!&ndash;  Just testing the table string function in the dataframe &ndash;&gt;-->
+<!--   <div class="container">-->
+<!--      <div class="row">-->
+<!--         <div class="col-md-12 col-sm-12">-->
+<!--             <p>table string from dataframe</p>-->
+<!--             {{mission_to_mars.facts_html_str}}-->
+<!--             <p></p>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--   </div>-->
+
+
 </body>
-
 </html>
 

@@ -36,3 +36,5 @@ inc/
 
 # Files specific to this project
 scrape_craigslist.py
+text.txt
+junk.py
