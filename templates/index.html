@@ -94,6 +94,43 @@
       </div>
     </div>
 
+<!-- Try to programatically control printing and get rows -->
+<div class="container">
+      <div class="row">
+          <div class="col-md-12 col-xs-6">
+              <h1>Trying program writing of multi row/column images</h1>
+          </div>
+
+      </div>
+
+
+            {% set ctr = 0 %}
+            {% for item in mission_to_mars.hemisphere_image_urls %}
+              {% if loop.index is divisibleby 2 %}
+                  <div class="col-md-6 col-xs-6">
+                     <figure class="figure">
+                        <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}"
+                            alt="alt text" width="50%" height="50%">
+                            <figcaption class="figure-caption">{{item["title"]}}</figcaption>
+                    </figure>
+                  </div>
+                </div>
+               {% else %}
+                   <div class="row">
+                       <div class="col-md-6 col-xs-6">
+                         <figure class="figure">
+                            <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}"
+                                alt="alt text" width="50%" height="50%">
+                                <figcaption class="figure-caption">{{item["title"]}}</figcaption>
+                        </figure>
+                      </div>
+
+               {% endif  %}
+            {% endfor %}
+
+
+    </div>
+
 <!--   &lt;!&ndash;  Just testing the table string function in the dataframe &ndash;&gt;-->
 <!--   <div class="container">-->
 <!--      <div class="row">-->
