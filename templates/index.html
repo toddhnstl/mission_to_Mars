@@ -67,7 +67,8 @@
                   <div class="row">
                     <div class="alert alert-dark" role="alert">
                         <h4 align="center">facts</h4>
-                        {% include 'facts_table_clean.html' ignore missing %}
+<!--                        {% include 'facts_table_clean.html' ignore missing %}-->
+                            {{mission_to_mars.facts_html_str | safe}}
                         <br/>
                     </div>
                   </div>
@@ -130,19 +131,6 @@
 
 
     </div>
-
-<!--   &lt;!&ndash;  Just testing the table string function in the dataframe &ndash;&gt;-->
-<!--   <div class="container">-->
-<!--      <div class="row">-->
-<!--         <div class="col-md-12 col-sm-12">-->
-<!--             <p>table string from dataframe</p>-->
-<!--             {{mission_to_mars.facts_html_str}}-->
-<!--             <p></p>-->
-<!--         </div>-->
-<!--      </div>-->
-<!--   </div>-->
-
-
 </body>
 </html>
 
