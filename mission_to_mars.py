@@ -201,11 +201,18 @@ def scrape():
     #         print("Inside if result for RegEx")
     #         print(p_text)
 
+            # Now lets split on the hPa and grab first part of string
+            # storing only that.
+            first, second = p_text.split('hPa')
+            first = first + " hPa" # add back units of measure
+            p_text = first
+
+
             # Store it in the dataframe
             scraped_data['weather_data'] = p_text
     #         print("")
-            break
-        # Once we confirm we found a weather post with InSight, exit loop.
+            break # Once we confirm we found a weather post with InSight, exit loop.
+
 
     #     print("---  End inside loop ----")
     #     print("")

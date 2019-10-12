@@ -1,0 +1,25 @@
+.body_class {
+    background-color: black;
+}
+
+.container {
+    background-color: black;
+
+}
+
+.figure {
+    background-color: black;
+}
+
+.figure-caption {
+    background-color: white;
+}
+body {
+    background-color: black;
+    color: yellow;
+
+}
+
+.jumbotron {
+    color: black;
+}
