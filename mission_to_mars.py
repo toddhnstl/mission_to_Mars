@@ -158,7 +158,7 @@ def scrape_twitter():
 # Facts table
 #
 def  scrape_facts():
-
+    print("IN Scrape Facts")
     # site 4 -
     facts_url = 'https://space-facts.com/mars/'
 
@@ -196,6 +196,7 @@ def  scrape_facts():
 #S
 def scrape_img_urls():
     # set base URL for this site
+    print("IN Scrape IMG URLS")
     astro_base_url = 'https://astrogeology.usgs.gov'
 
     # use bs4 to scrape the title and url and add to dictionary
@@ -265,12 +266,15 @@ def scrape():
     scraped_data['featured_image_caption'] = featured_image_caption
 
     wx_text = scrape_twitter()
+    print(wx_text)
     scraped_data['weather_data'] = wx_text
 
     facts_html_str = scrape_facts()
+    print(facts_html_str)
     scraped_data['facts_html_str'] = facts_html_str
 
     ll_hemi_image_urls = scrape_img_urls()
+    print(ll_hemi_image_urls)
     scraped_data['hemisphere_image_urls'] = ll_hemi_image_urls
 
  
