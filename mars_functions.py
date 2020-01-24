@@ -145,7 +145,7 @@ def scrape_twitter():
 # Facts table
 #
 def  scrape_facts():
-    print("IN Scrape Facts")
+    # print("IN Scrape Facts")
     # site 4 -
     facts_url = 'https://space-facts.com/mars/'
 
