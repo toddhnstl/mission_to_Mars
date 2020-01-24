@@ -17,12 +17,12 @@ from bs4 import BeautifulSoup as bs
 from splinter import Browser
 
 
-
 def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
     # executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
     executable_path = {'executable_path': 'chromedriver.exe'}
     return Browser("chrome", **executable_path, headless=False)
+
 
 def scrape():
     # # Scrape everything
@@ -51,5 +51,4 @@ def scrape():
     print(ll_hemi_image_urls)
     scraped_data['hemisphere_image_urls'] = ll_hemi_image_urls
 
- 
     return(scraped_data)
