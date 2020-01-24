@@ -4,15 +4,11 @@ import requests
 import time
 import re
 
-# import mars_functions  __init__.py
-
-
 from bs4 import BeautifulSoup as bs
 from splinter import Browser
 
 
 
-##
 #scrape_news 
 #  returns news_title, news_p
 def scrape_news():
@@ -34,7 +30,6 @@ def scrape_news():
   time.sleep(3)
   html = browser.html
   soup = bs(html, 'html.parser')
-
 
 
   # Get an article block.
