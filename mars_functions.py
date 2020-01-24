@@ -54,7 +54,7 @@ def scrape_news():
 #
 #
 def scrape_jpl():
-    print("in scrape JPL")
+    # print("in scrape JPL")
     # site 2 - https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars
     base_url = 'https://www.jpl.nasa.gov'
     # # use splinter to connect to the url and navigate, then use bs4 to repeat what you did in site 1
@@ -77,10 +77,6 @@ def scrape_jpl():
     featured_image_caption = img_soup.find('h1', class_='media_feature_title').text
     featured_image_caption = featured_image_caption.strip()
     print(featured_image_caption)
-
-    # Load it to the dataframe
-    # scraped_data['featured_image_url'] = featured_image_url
-    # scraped_data['featured_image_caption'] = featured_image_caption
     
     return(featured_image_url, featured_image_caption)
 
