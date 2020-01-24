@@ -9,25 +9,25 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href='/static/style.css' />
-<!--    <script src="./w3.js"></script>-->
+  <link rel="stylesheet" href='/static/style.css' />
+  <!--    <script src="./w3.js"></script>-->
 
-<!--    <link href="style.css" type="text/css" rel="stylesheet">-->
+  <!--    <link href="style.css" type="text/css" rel="stylesheet">-->
 
 </head>
 
@@ -40,97 +40,94 @@
     </div>
 
     <!-- Page contents -->
-     <div class="row">
-         <div class="col-md-8 col-sm-12">
-            <div class="page_left">
-                <h2 align="center">Mars News</h2>
-                <hr>
-                <h4>{{mission_to_mars.news_title}}</h4>
-                <p>{{mission_to_mars.news_p}}</p>
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <div class="page_left">
+          <h2 align="center">Mars News</h2>
+          <hr>
+          <h4>{{mission_to_mars.news_title}}</h4>
+          <p>{{mission_to_mars.news_p}}</p>
 
-                <figure class="figure">
-                    <img class="figure-img img-fluid rounded" src="{{mission_to_mars.featured_image_url}}"
-                        alt="alt text" width="100%" height="100%">
-                        <figcaption class="figure-caption">{{mission_to_mars.featured_image_caption}}</figcaption>
-                </figure>
-             </div>
-         </div>
-          <!-- Right side top -->
-          <div class="col-md-4 col-sm-12">
-              <div class="container">
-                  <div class="row">
-                    <div class="alert alert-dark" role="alert">
-                        <h4 align="center">Weather</h4>
-                        <br/>
-                        {{mission_to_mars.weather_data}}
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="alert alert-dark" role="alert">
-                        <h4 align="center">facts</h4>
-<!--                        {% include 'facts_table_clean.html' ignore missing %}-->
-                            {{mission_to_mars.facts_html_str | safe}}
-                        <br/>
-                    </div>
-                  </div>
-              </div>
+          <figure class="figure">
+            <img class="figure-img img-fluid rounded" src="{{mission_to_mars.featured_image_url}}" alt="alt text"
+              width="100%" height="100%">
+            <figcaption class="figure-caption">{{mission_to_mars.featured_image_caption}}</figcaption>
+          </figure>
+        </div>
+      </div>
+      <!-- Right side top -->
+      <div class="col-md-4 col-sm-12">
+        <div class="container">
+          <div class="row">
+            <div class="alert alert-dark" role="alert">
+              <h4 align="center">Weather</h4>
+              <br />
+              {{mission_to_mars.weather_data}}
+            </div>
           </div>
-       </div>
-   </div>
-    <!-- The images  it would be cool to do a while loop on this -->
-    <div class="container">
-      <div class="row">
-         <div class="col-md-12 col-sm-12">
-            {% set ctr = 0 %}
-            {% for item in mission_to_mars.hemisphere_image_urls %}
-              <div class="col-md-6 col-xs-6">
-                 <figure class="figure">
-                    <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}"
-                        alt="alt text" width="50%" height="50%">
-                        <figcaption class="figure-caption">{{item["title"]}}</figcaption>
-                </figure>
-              </div>
-            {% endfor %}
-         </div>
+          <div class="row">
+            <div class="alert alert-dark" role="alert">
+              <h4 align="center">facts</h4>
+              <!--                        {% include 'facts_table_clean.html' ignore missing %}-->
+              {{mission_to_mars.facts_html_str | safe}}
+              <br />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <!-- The images  it would be cool to do a while loop on this -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        {% set ctr = 0 %}
+        {% for item in mission_to_mars.hemisphere_image_urls %}
+        <div class="col-md-6 col-xs-6">
+          <figure class="figure">
+            <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}" alt="alt text" width="50%" height="50%">
+            <figcaption class="figure-caption">{{item["title"]}}</figcaption>
+          </figure>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
-<!-- Try to programmatically control printing and get rows -->
-<div class="container">
-      <div class="row">
-          <div class="col-md-12 col-xs-2">
-              <h1>Do program writing of multi row/column images</h1>
-          </div>
-
+  <!-- Try to programmatically control printing and get rows -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-xs-2">
+        <h1>Do program writing of multi row/column images</h1>
       </div>
 
-
-            {% set ctr = 0 %}
-            {% for item in mission_to_mars.hemisphere_image_urls %}
-              {% if loop.index is divisibleby 2 %}
-                  <div class="col-md-6 col-xs-2">
-                     <figure class="figure">
-                        <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}"
-                            alt="alt text" width="50%" height="50%">
-                            <figcaption class="figure-caption">{{item["title"]}}</figcaption>
-                    </figure>
-                  </div>  <!-- div col -->
-                </div>  <!-- div row -->
-               {% else %}
-                   <div class="row">
-                       <div class="col-md-6 col-xs-2">
-                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}"
-                                alt="alt text" width="50%" height="50%">
-                                <figcaption class="figure-caption">{{item["title"]}}</figcaption>
-                        </figure>
-                      </div>
-
-               {% endif  %}
-            {% endfor %}
-
-
     </div>
+
+
+    {% set ctr = 0 %}
+    {% for item in mission_to_mars.hemisphere_image_urls %}
+    {% if loop.index is divisibleby 2 %}
+    <div class="col-md-6 col-xs-2">
+      <figure class="figure">
+        <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}" alt="alt text" width="50%" height="50%">
+        <figcaption class="figure-caption">{{item["title"]}}</figcaption>
+      </figure>
+    </div> <!-- div col -->
+  </div> <!-- div row -->
+  {% else %}
+  <div class="row">
+    <div class="col-md-6 col-xs-2">
+      <figure class="figure">
+        <img class="figure-img img-fluid rounded" src="{{item["img_url"]}}" alt="alt text" width="50%" height="50%">
+        <figcaption class="figure-caption">{{item["title"]}}</figcaption>
+      </figure>
+    </div>
+
+    {% endif  %}
+    {% endfor %}
+
+
+  </div>
 </body>
-</html>
 
+</html>
